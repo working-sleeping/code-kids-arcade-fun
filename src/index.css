@@ -1,92 +1,104 @@
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    /* Default theme (Space) */
+    --background: 240 10% 14%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 18%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 18%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 265 84% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 270 100% 86%;
+    --secondary-foreground: 240 10% 14%;
+    
+    --muted: 240 6% 25%;
+    --muted-foreground: 240 5% 75%;
+    
+    --accent: 199 95% 48%;
+    --accent-foreground: 0 0% 98%;
+    
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 6% 30%;
+    --input: 240 6% 25%;
+    --ring: 265 84% 60%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.75rem;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  /* Candyland theme */
+  .theme-candyland {
+    --background: 48 98% 90%;
+    --foreground: 20 5% 8%;
+    
+    --card: 48 100% 95%;
+    --card-foreground: 20 5% 8%;
+    
+    --popover: 48 100% 95%;
+    --popover-foreground: 20 5% 8%;
+    
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 350 100% 94%;
+    --secondary-foreground: 20 5% 8%;
+    
+    --muted: 25 70% 90%;
+    --muted-foreground: 20 5% 35%;
+    
+    --accent: 300 84% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 25 70% 85%;
+    --input: 25 70% 85%;
+    --ring: 25 95% 53%;
+  }
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Underwater theme */
+  .theme-underwater {
+    --background: 214 95% 91%;
+    --foreground: 220 35% 20%;
+    
+    --card: 214 95% 95%;
+    --card-foreground: 220 35% 20%;
+    
+    --popover: 214 95% 95%;
+    --popover-foreground: 220 35% 20%;
+    
+    --primary: 199 95% 48%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 255 100% 95%;
+    --secondary-foreground: 220 35% 20%;
+    
+    --muted: 199 50% 85%;
+    --muted-foreground: 220 35% 40%;
+    
+    --accent: 245 34% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 199 50% 80%;
+    --input: 199 50% 80%;
+    --ring: 199 95% 48%;
   }
 }
 
@@ -94,8 +106,46 @@
   * {
     @apply border-border;
   }
-
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans relative overflow-x-hidden;
   }
+
+  /* Emoji font family for better emoji support */
+  .emoji {
+    font-family: "Noto Color Emoji", "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+  }
+}
+
+@layer utilities {
+  .speech-bubble {
+    @apply relative rounded-xl p-3 before:content-[''] before:absolute before:left-1/2 before:-bottom-3 before:w-4 before:h-4 before:bg-primary before:rotate-45 before:-translate-x-1/2;
+  }
+}
+
+/* Editor overrides */
+.monaco-editor .monaco-editor-background {
+  @apply bg-card;
+}
+
+/* Terminal overrides */
+.xterm-screen {
+  @apply rounded-lg overflow-hidden;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/70;
 }
