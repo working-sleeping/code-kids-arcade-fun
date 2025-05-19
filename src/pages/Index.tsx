@@ -13,6 +13,8 @@ import AchievementDisplay from "@/components/AchievementDisplay";
 import CodeSnippets from "@/components/CodeSnippets";
 import Confetti from "@/components/Confetti";
 import HelpTooltip from "@/components/HelpTooltip";
+import CodeBuddy from "@/components/CodeBuddy";
+import CodingGames from "@/components/CodingGames";
 
 // Mock execution service (in real app this would call a backend)
 const executePythonCode = async (code: string, input: string = ""): Promise<string> => {
@@ -64,7 +66,7 @@ const executePythonCode = async (code: string, input: string = ""): Promise<stri
 };
 
 const MainApp = () => {
-  const [code, setCode] = useState("# Welcome to FunCoder!\n# Write your Python code here and click Run Code\n\nprint(\"Hello, world! 🚀\")");
+  const [code, setCode] = useState("# Welcome to FunCoder! 🎮\n# Write your Python code here and click Run Code 🚀\n\nprint(\"Hello, world! 👋\")\n\n# Try the Games button for fun coding challenges! 🎯");
   const [output, setOutput] = useState("");
   const [isRunning, setIsRunning] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -88,9 +90,16 @@ const MainApp = () => {
     setCode(snippetCode);
   };
   
+  const handleSelectGame = (gameCode: string) => {
+    setCode(gameCode);
+    toast.info("🎮 Game loaded! Try completing the challenge.", {
+      description: "Write your solution and click Run Code to try it out!",
+    });
+  };
+  
   const handleRun = async () => {
     setIsRunning(true);
-    setOutput("> Running your code...\n\n");
+    setOutput("> Running your code... 🚀\n\n");
     
     try {
       const result = await executePythonCode(code, inputBuffer);
@@ -110,7 +119,7 @@ const MainApp = () => {
     } catch (error) {
       console.error("Code execution error:", error);
       setOutput((prev) => prev + "Error executing code.\n");
-      toast.error("There was an error running your code");
+      toast.error("There was an error running your code 😢");
     } finally {
       setIsRunning(false);
     }
@@ -126,6 +135,7 @@ const MainApp = () => {
     <div className="min-h-screen bg-background flex flex-col p-4 md:p-6 transition-colors duration-300">
       <HelpTooltip />
       <Confetti show={showConfetti} />
+      <CodeBuddy codeRunning={isRunning} />
       
       {/* Header */}
       <header className="flex justify-between items-center mb-6">
@@ -137,6 +147,7 @@ const MainApp = () => {
         </div>
         
         <div className="flex items-center gap-3">
+          <CodingGames onSelectGame={handleSelectGame} />
           <CodeSnippets onSelect={handleSelectSnippet} />
           <AchievementDisplay />
           <ThemeSwitcher />

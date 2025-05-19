@@ -3,9 +3,33 @@ import { createContext, useContext, useState, ReactNode } from "react";
 
 export type Theme = "space" | "candyland" | "underwater";
 
+type ThemeEmojis = {
+  [key in Theme]: {
+    primary: string;
+    secondary: string;
+  }
+};
+
 type ThemeContextType = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
+  emojis: ThemeEmojis;
+  themeEmoji: string;
+};
+
+const themeEmojis: ThemeEmojis = {
+  space: {
+    primary: "🚀",
+    secondary: "👾"
+  },
+  candyland: {
+    primary: "🍭",
+    secondary: "🧁"
+  },
+  underwater: {
+    primary: "🐙",
+    secondary: "🐠"
+  }
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -22,7 +46,12 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme: updateTheme }}>
+    <ThemeContext.Provider value={{ 
+      theme, 
+      setTheme: updateTheme,
+      emojis: themeEmojis,
+      themeEmoji: themeEmojis[theme].primary
+    }}>
       {children}
     </ThemeContext.Provider>
   );
