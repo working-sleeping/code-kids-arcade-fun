@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Play, RocketLaunch } from "lucide-react";
+import { Play, Rocket } from "lucide-react";
 import { useAchievements } from "@/contexts/AchievementContext";
 import { useTheme } from "@/contexts/ThemeContext";
 
@@ -53,7 +53,7 @@ const RunButton = ({ onClick, disabled = false }: RunButtonProps) => {
       size="lg"
     >
       {isAnimating ? (
-        <RocketLaunch className="w-5 h-5" />
+        <Rocket className="w-5 h-5" />
       ) : (
         <Play className="w-5 h-5" />
       )}
